@@ -14,3 +14,10 @@ export const getContactsApi = () => {
     .then(({ data }) => data)
     .catch(err => err);
 };
+
+export const deleteContactsApi = id => {
+  return axios
+    .delete(`/contacts/${id}`)
+    .then(() => id)
+    .catch(err => err);
+};

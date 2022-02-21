@@ -21,7 +21,7 @@ export default function ContactForm() {
         break;
     }
   }
-   const clearFilds = () => {
+   const clearFields = () => {
     setName('');
     setNumber('');
    }
@@ -35,12 +35,12 @@ export default function ContactForm() {
     };
     console.log(newContact)
     if (items.find(contact =>contact.name.toLowerCase().includes(newContact.name.toLowerCase()))) {
-      clearFilds();
+      clearFields();
           return alert(`${newContact.name} is already in contacts`);
         }
     // console.log(addContact(newContact))
     dispatch(addContact(newContact));
-    clearFilds();
+    clearFields();
 
   };
   
