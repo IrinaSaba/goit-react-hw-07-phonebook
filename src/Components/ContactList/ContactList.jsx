@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import {deleteContact} from '../../redux/contacts-actions'
+// import {deleteContact} from '../../redux/contacts-actions'
 
 const filterContact = (items, filter) => {
   return items.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+    contact.name.includes(filter)
   );
 };
 
@@ -12,16 +12,17 @@ const ContactList = () => {
   const items = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.contacts.filter);
   const newItems = filterContact(items, filter);
-   return (
+  console.log(items)
+   return  newItems.length ? (
      <ul>
        {newItems.map(({ name, id, number }) => (
-      <li key={id}>
+        <li key={id}>
          {name} : {number}
-         <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
-      </li>
+         <button >Delete</button>
+        </li>
        ))}
      </ul>
-   );
+   ) : null;
  };
  
  export default ContactList;

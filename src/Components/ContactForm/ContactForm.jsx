@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch , useSelector} from "react-redux";
-import {addContact} from '../../redux/contacts-actions'
+import {addContact} from '../../redux/contacts-operations'
 // import actions from './contacts-actions';
 
 export default function ContactForm() {
@@ -28,8 +28,8 @@ export default function ContactForm() {
 
    const  handleSubmit = (event) => {
     event.preventDefault();
+
     const newContact = {
-      // id: nanoid(),
       name,
       number
     };
@@ -38,7 +38,7 @@ export default function ContactForm() {
       clearFilds();
           return alert(`${newContact.name} is already in contacts`);
         }
-    console.log(addContact(newContact))
+    // console.log(addContact(newContact))
     dispatch(addContact(newContact));
     clearFilds();
 
