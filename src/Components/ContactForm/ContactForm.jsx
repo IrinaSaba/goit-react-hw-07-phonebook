@@ -36,7 +36,7 @@ export default function ContactForm() {
     console.log(newContact)
     if (items.find(contact =>contact.name.toLowerCase().includes(newContact.name.toLowerCase()))) {
       clearFields();
-          return alert(`${newContact.name} is already in contacts`);
+          return alert(`I have your contact already Sergey )))`);
         }
     // console.log(addContact(newContact))
     dispatch(addContact(newContact));
